@@ -1,0 +1,68 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "title": "First post",
+      "author": "admin",
+      "body": "This is the first post"
+    },
+    {
+      "title": "2nd post",
+      "author": "admin",
+      "body": "This is the 2nd post",
+      "id": 1
+    },
+    {
+      "title": "ma title",
+      "author": "user_1",
+      "body": "This is the 3rd post",
+      "id": 2
+    },
+    {
+      "title": "asf",
+      "author": "user",
+      "body": "generate something",
+      "id": 3
+    }
+  ],
+  "albums": [
+    {
+      "id": 0,
+      "title": "First album",
+      "user": "admin",
+      "images": [
+        "0.jpg",
+        "1.jpg"
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Second album",
+      "user": "user_1",
+      "images": [
+        "2.jpg",
+        "3.jpg",
+        "4.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Third album",
+      "user": "user_2",
+      "images": [
+        "5.jpg",
+        "6.jpg",
+        "7.jpg",
+        "8.jpg",
+        "9.jpg"
+      ]
+    }
+  ],
+  "todos": [
+    {
+      "id": 0,
+      "title": "First album",
+      "status": true
+    }
+  ]
+}

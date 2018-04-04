@@ -1,3 +1,88 @@
-<p>
-  posts works!
-</p>
+<!-- <ul>
+    <li *ngFor="let post of posts | async" (click)="loadDetails(post)">{{post.body}}</li>
+</ul>
+
+<div *ngIf="updateEnabled">
+    Title
+    <input type="text" #updateTitle [value]="selectedPost.title" /> Author
+    <input type="text" #updateAuthor [value]="selectedPost.author" /> Message
+    <input type="text" #updateBody [value]="selectedPost.body" />
+    <button class="btn btn-warning" type="button" (click)="updatePost(updateTitle.value, updateAuthor.value, updateBody.value)">Update</button>
+    <button class="btn btn-danger" type="button" (click)="deletePost()">Delete</button>
+</div>
+
+<h2>Add Post</h2>
+Title
+<input type="text" #newTitle /> Author
+<input type="text" #newAuthor /> Message
+<input type="text" #newBody />
+
+<button class="btn btn-primary" type="button" (click)="createPost(newTitle.value, newAuthor.value, newBody.value)">Post</button>
+ -->
+
+<div class="col-xs-12 mb-3 mt-3">
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#addPostModal">Add Post</button>
+</div>
+
+<div class="row">
+    <div class="col-sm-6" *ngFor="let post of posts | async">
+        <div class="card mb-3">
+            <h5 class="card-header">{{post.title}}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{post.author}}</h5>
+                <p class="card-text">{{post.body}}</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editDetailModal" (click)="loadDetails(post)">Edit details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="editDetailModal" tabindex="-1" role="dialog" aria-labelledby="editDetailModalLabel" aria-hidden="true" *ngIf="updateEnabled">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editDetailModalLabel">Edit post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    Title
+                    <input class="form-control" type="text" #updateTitle [value]="selectedPost.title" /> Author
+                    <input class="form-control" type="text" #updateAuthor [value]="selectedPost.author" /> Message
+                    <input class="form-control" type="text" #updateBody [value]="selectedPost.body" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-warning" type="button" (click)="updatePost(updateTitle.value, updateAuthor.value, updateBody.value)">Update</button>
+                <button class="btn btn-danger" type="button" (click)="deletePost()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="addPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPostModalLabel">Edit post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                Title
+                <input class="form-control" type="text" #newTitle /> Author
+                <input class="form-control" type="text" #newAuthor /> Message
+                <input class="form-control" type="text" #newBody />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="button" (click)="createPost(newTitle.value, newAuthor.value, newBody.value)">Post</button>
+            </div>
+        </div>
+    </div>
+</div>
